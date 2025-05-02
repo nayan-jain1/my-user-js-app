@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+          <div><strong>MyApp</strong></div>
+          <div class="menu">
+            <a href="#how-it-works">How it works</a>
+            <a href="#user-list">User list</a>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <section id="how-it-works">
+          <h2>How It Works?</h2>
+          <p>This application allows you to manage a list of users. You can add, edit, delete, and search users using the interactive table below.</p>
+        </section>
+    
+        <section id="user-list">
+          <h2>User List</h2>
+          <button class="add-user-btn" onclick="openModal()">Add User</button>
+          <table id="userTable">
+            <thead>
+              <tr>
+                <th>First Name<br>
+                    <input class="filter-input" oninput="applyFilters()" data-key="firstName"></th>
+                <th>Last Name<br>
+                    <input class="filter-input" oninput="applyFilters()" data-key="lastName"></th>
+                <th>Username<br>
+                    <input class="filter-input" oninput="applyFilters()" data-key="username"></th>
+                <th>City<br>
+                    <input class="filter-input" oninput="applyFilters()" data-key="city"></th>
+                <th>Department<br>
+                    <input class="filter-input" oninput="applyFilters()" data-key="department"></th>
+                <th style="padding-bottom:  2.5rem;">Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="pagination" id="pagination"></div>
+        </section>
+      </main>
+
+      <footer>
+        User Management
+      </footer>
+
+      <div class="modal" id="userModal">
+        <div class="modal-content">
+          <h3 id="modalTitle">Add User</h3>
+          <form id="userForm" onsubmit="saveUser(event)">
+            <input type="hidden" id="editIndex">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="department" placeholder="Department" required>
+            <button type="submit">Save</button>
+            <button type="button" onclick="closeModal()">Cancel</button>
+          </form>
+        </div>
+      </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
